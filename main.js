@@ -6,6 +6,8 @@ const box = 10;
 let snake = [];
 let score = 0;
 let highScore = 0;
+const bloodSplash = new Image();
+bloodSplash.src = ''
 
 // Add high score as 0 to local storage if it is the first time
 if (!localStorage.getItem('high-score')) {
@@ -116,6 +118,7 @@ function draw() {
         drawText(`Game Over!`, 200, 180);
         drawText(`Your final score is: ${score}`, 200, 210);
         updateHighScore();
+        drawBloodSplash(snakeX, snakeY)
     }
 
     snake.unshift(newHead);
@@ -135,6 +138,20 @@ function updateHighScore() {
     let oldHighScore = parseInt(localStorage.getItem('high-score'));
     if (oldHighScore < score) {
         localStorage.setItem('high-score', score);
+    }
+}
+
+// draw a blood splash
+function drawBloodSplash(x, y) {
+    ctx.fillStyle = 'red';
+    for (let i = 0; i < 50; i++) {
+        const radius = Math.random() * 20;
+        const angle = Math.random() * Math.PI * 2;
+        const dx = Math.cos(angle) * radius;
+        const dy = Math.sin(angle) * radius;
+        ctx.beginPath();
+        ctx.arc(x + dx, y + dy, Math.random() * 10, 0, Math.PI * 2);
+        ctx.fill();
     }
 }
 
