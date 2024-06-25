@@ -74,8 +74,8 @@ function draw() {
 
     if (snakeX === food.x && snakeY === food.y) {
         food = {
-            x: Math.floor(Math.random() * 20) * box,
-            y: Math.floor(Math.random() * 20) * box
+            x: Math.floor(Math.random() * 40) * box,
+            y: Math.floor(Math.random() * 40) * box
         };
         score += 1
         updateScore();
