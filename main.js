@@ -33,11 +33,29 @@ function updateScore() {
 
 // Chanes direction of the snake every time an arrow is clicked
 function setDirection(event) {
-    if ((event.keyCode === 37 || event.keyCode === 76 || event.keyCode === 108) && direction !== 'RIGHT') direction = 'LEFT';
-    else if ((event.keyCode === 38 || event.keyCode === 85 || event.keyCode === 117) && direction !== 'DOWN') direction = 'UP';
-    else if ((event.keyCode === 39 || event.keyCode === 82 || event.keyCode === 114) && direction !== 'LEFT') direction = 'RIGHT';
-    else if ((event.keyCode === 40 || event.keyCode === 68 || event.keyCode === 100) && direction !== 'UP') direction = 'DOWN';
+    if ((event.keyCode === 37 || clickBtn() === 37 || event.keyCode === 76 || event.keyCode === 108) && direction !== 'RIGHT') direction = 'LEFT';
+    else if ((event.keyCode === 38 || clickBtn() === 38 || event.keyCode === 85 || event.keyCode === 117) && direction !== 'DOWN') direction = 'UP';
+    else if ((event.keyCode === 39 || clickBtn() === 39 || event.keyCode === 82 || event.keyCode === 114) && direction !== 'LEFT') direction = 'RIGHT';
+    else if ((event.keyCode === 40 || clickBtn() === 40 || event.keyCode === 68 || event.keyCode === 100) && direction !== 'UP') direction = 'DOWN';
     else direction = direction;
+}
+
+// change direction when play with mobile
+function clickBtn() {
+    if (window.screenX <= 767) {
+        document.querySelector('.play-on-mobile').style.display = 'flex';;
+        const btns = Array.from(document.querySelectorAll('.play-on-mobile span'));
+        btns.forEach(btn => {
+            btn.addEventListener('touchstart', function(e) {
+                console.log(this.dataset.code)
+                console.log(parseInt(this.dataset.code))
+                return parseInt(this.dataset.code);
+            })
+        })
+    } else {
+        btnContainer.style.display = 'none';
+        return 0;
+    }
 }
 
 // check collision of the snake with itself 
