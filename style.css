@@ -27,3 +27,20 @@ body {
 canvas {
     border: 1px solid #fff;
 }
+.play-on-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.play-on-mobile span {
+    display: block;
+    width: fit-content;
+    padding: 5px 10px;
+    background-color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+}

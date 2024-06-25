@@ -42,7 +42,7 @@ function setDirection(event) {
 
 // change direction when play with mobile
 function clickBtn() {
-    if (window.innerWidth <= 767) {
+    if (/Android/i.test(navigator.userAgent) || /iPhone|iPad|iPod/i.test(navigator.userAgent)) {
         document.querySelector('.play-on-mobile').style.display = 'flex';;
         const btns = Array.from(document.querySelectorAll('.play-on-mobile span'));
         btns.forEach(btn => {
