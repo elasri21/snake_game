@@ -1,0 +1,29 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100vh;
+    margin: 0;
+    background: #000;
+}
+.score-container {
+    background-color: #fff;
+    padding: 15px 20px;
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.score-container span {
+    color: #333;
+    font-size: 24px;
+    font-weight: 600;
+}
+.canvas-container {
+    width: 100%;
+    text-align: center;
+}
+canvas {
+    border: 1px solid #fff;
+}
