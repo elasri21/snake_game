@@ -25,6 +25,7 @@ let food = {
 };
 
 document.addEventListener('keydown', setDirection);
+clickBtn();
 
 // update score each time the snake eats the food
 function updateScore() {
@@ -33,10 +34,10 @@ function updateScore() {
 
 // Chanes direction of the snake every time an arrow is clicked
 function setDirection(event) {
-    if ((event.keyCode === 37 || clickBtn() === 37 || event.keyCode === 76 || event.keyCode === 108) && direction !== 'RIGHT') direction = 'LEFT';
-    else if ((event.keyCode === 38 || clickBtn() === 38 || event.keyCode === 85 || event.keyCode === 117) && direction !== 'DOWN') direction = 'UP';
-    else if ((event.keyCode === 39 || clickBtn() === 39 || event.keyCode === 82 || event.keyCode === 114) && direction !== 'LEFT') direction = 'RIGHT';
-    else if ((event.keyCode === 40 || clickBtn() === 40 || event.keyCode === 68 || event.keyCode === 100) && direction !== 'UP') direction = 'DOWN';
+    if ((event.keyCode === 37 || event.keyCode === 76 || event.keyCode === 108) && direction !== 'RIGHT') direction = 'LEFT';
+    else if ((event.keyCode === 38 || event.keyCode === 85 || event.keyCode === 117) && direction !== 'DOWN') direction = 'UP';
+    else if ((event.keyCode === 39 || event.keyCode === 82 || event.keyCode === 114) && direction !== 'LEFT') direction = 'RIGHT';
+    else if ((event.keyCode === 40 || event.keyCode === 68 || event.keyCode === 100) && direction !== 'UP') direction = 'DOWN';
     else direction = direction;
 }
 
@@ -47,15 +48,17 @@ function clickBtn() {
         const btns = Array.from(document.querySelectorAll('.play-on-mobile span'));
         btns.forEach(btn => {
             btn.addEventListener('touchend', function(e) {
-                console.log(this.dataset.code)
-                console.log(parseInt(this.dataset.code))
-                console.log(this)
-                return parseInt(this.dataset.code);
+                let code = this.dataset.code;
+                if (code === "l" && direction !== 'RIGHT') direction = 'LEFT';
+                else if (code === "u" && direction !== 'DOWN') direction = 'UP';
+                else if (code === "r" && direction !== 'LEFT') direction = 'RIGHT';
+                else if (code === "d" && direction !== 'UP') direction = 'DOWN';
+                else direction = direction;
             })
         })
     } else {
-        btnContainer.style.display = 'none';
-        return 0;
+        document.querySelector('.play-on-mobile').style.display = 'none';
+        return;
     }
 }
 
