@@ -33,10 +33,11 @@ function updateScore() {
 
 // Chanes direction of the snake every time an arrow is clicked
 function setDirection(event) {
-    if (event.keyCode === 37 && direction !== 'RIGHT') direction = 'LEFT';
-    else if (event.keyCode === 38 && direction !== 'DOWN') direction = 'UP';
-    else if (event.keyCode === 39 && direction !== 'LEFT') direction = 'RIGHT';
-    else if (event.keyCode === 40 && direction !== 'UP') direction = 'DOWN';
+    if ((event.keyCode === 37 || event.keyCode === 76 || event.keyCode === 108) && direction !== 'RIGHT') direction = 'LEFT';
+    else if ((event.keyCode === 38 || event.keyCode === 85 || event.keyCode === 117) && direction !== 'DOWN') direction = 'UP';
+    else if ((event.keyCode === 39 || event.keyCode === 82 || event.keyCode === 114) && direction !== 'LEFT') direction = 'RIGHT';
+    else if ((event.keyCode === 40 || event.keyCode === 68 || event.keyCode === 100) && direction !== 'UP') direction = 'DOWN';
+    else direction = direction;
 }
 
 // check collision of the snake with itself 
