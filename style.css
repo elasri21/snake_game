@@ -56,9 +56,11 @@ canvas {
 }
 .play-on-mobile button {
     outline: none;
+    border: none;
+    border-radius: 4px;
     display: block;
     width: fit-content;
-    padding: 5px 10px;
+    padding: 10px 15px;
     background-color: #fff;
     font-size: 20px;
     font-weight: 600;
