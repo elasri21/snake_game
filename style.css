@@ -47,7 +47,7 @@ canvas {
 }
 .play-on-mobile {
     width: 400px;
-    display: block !important;
+    display: block;
     text-align: center;
 }
 .play-on-mobile button {
