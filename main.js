@@ -46,7 +46,7 @@ function setDirection(event) {
 // change direction when play with mobile
 function clickBtn() {
     if (/Android/i.test(navigator.userAgent) || /iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-        document.querySelector('.play-on-mobile').style.display = 'flex';
+        document.querySelector('.play-on-mobile').style.display = 'block';
         const btns = Array.from(document.querySelectorAll('.play-on-mobile button'));
         btns.forEach(btn => {
             btn.addEventListener('touchend', function(e) {
