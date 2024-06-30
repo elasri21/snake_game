@@ -54,7 +54,8 @@ canvas {
     gap: 15px;
     margin: 20px auto 0 auto;
 }
-.play-on-mobile span {
+.play-on-mobile button {
+    outline: none;
     display: block;
     width: fit-content;
     padding: 5px 10px;

@@ -6,8 +6,8 @@ const box = 10;
 let snake = [];
 let score = 0;
 let highScore = 0;
-const bloodSplash = new Image();
-bloodSplash.src = ''
+// const bloodSplash = new Image();
+// bloodSplash.src = ''
 
 // Add high score as 0 to local storage if it is the first time
 if (!localStorage.getItem('high-score')) {
@@ -47,7 +47,7 @@ function setDirection(event) {
 function clickBtn() {
     if (/Android/i.test(navigator.userAgent) || /iPhone|iPad|iPod/i.test(navigator.userAgent)) {
         document.querySelector('.play-on-mobile').style.display = 'flex';
-        const btns = Array.from(document.querySelectorAll('.play-on-mobile span'));
+        const btns = Array.from(document.querySelectorAll('.play-on-mobile button'));
         btns.forEach(btn => {
             btn.addEventListener('touchend', function(e) {
                 let code = this.dataset.code;
